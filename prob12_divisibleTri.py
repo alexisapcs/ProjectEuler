@@ -15,23 +15,22 @@
 ##
 ##What is the value of the first triangle number to have over five hundred divisors?
 
+
 def triNum(num):
-    if num == 0: return 0
-    elif num == 995: return 495510
-    elif num == 1990: return 1981045
-    else: return num + triNum(num-1)
+    total = 0
+    for x in range(1, num+1):
+        total += x
+    return total
 
 def divs(num):
     total = 0
     for x in range(1, num+1):
         if num%x == 0:
             total += 1
+            ##print("this is x: ", x)
     return total
 
-print(triNum(2985))
-##print(divs(triNum(3980)))
-##cap = 500
-##x = 1
-##while divs(triNum(x)) != 500: 
-##    x += 1
-##print(triNum(x))
+x = 1
+while divs(triNum(x)) <= 500: 
+    x += 1
+print(triNum(x))
