@@ -16,8 +16,6 @@
 ##We can see that 28 is the first triangle number to have over five divisors.
 ##
 ##What is the value of the first triangle number to have over five hundred divisors?
-import timeit
-from math import sqrt
 
 def triNum(num):
     return int(num*(num+1)/2)
