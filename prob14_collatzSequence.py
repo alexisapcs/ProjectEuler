@@ -18,20 +18,21 @@ def collatz(num):
     else:
         return (int)(3*num + 1)
 
-##topChain = 0
-chain = 0
+topChain = 0
+topChainIndex = 0
 def collatz_count(num, count=0):
     if num == 1:
-        print(count)
-        chain = count
-        return chain
+        return count+1
     else:
-        collatz_count(collatz(num), count+1)
+        return collatz_count(collatz(num), count+1)
 
-##for x in range(1, 13):
-##    guess = collatz_count(x, 0)
-####    if ( guess > topChain ):
-####        topChain = guess
+for x in range(1, 1000000):
+    guess = collatz_count(x, 0)
+    if ( guess > topChain ):
+        topChain = guess
+        topChainIndex = x
 
-print(collatz_count(13, 0))
+
+print("the index of the highest chain is: ",  topChainIndex)
+
 
